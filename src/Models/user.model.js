@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const validator = require("validator");
 const { RoleSystem } = require("../Enums");
 const err = require("../Errors/index");
 const jwt = require("jsonwebtoken");
@@ -18,11 +19,7 @@ const userSchema = mongoose.Schema(
             },
         },
         avatar: {
-            type: String,
-            validate: (value) => {
-                if (!/([/|.|\w|\s|-])*\.(?:jpg|gif|png)/.test(value))
-                    throw new Error(err.INVALID_IMAGE.messageCode);
-            },
+            type: String
         },
         name: {
             type: String,

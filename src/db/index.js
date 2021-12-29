@@ -6,11 +6,7 @@ mongoose.Promise = global.Promise;
 
 // Connecting to the database
 mongoose
-    .connect(dbConfig.url, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        // replicaSet      : 'rs0', //
-    })
+    .connect(dbConfig.url)
     .then(() => {
         console.log("Successfully connected to the database");
     })
