@@ -5,6 +5,7 @@ const { RoleSystem } = require("../Enums");
 const auth = async (req, res, next) => {
   try {
     const token = req.header("Authorization")?.replace("Bearer ", "");
+    console.log(`token`, token)
     if (!token)
       return errorHandler(res, err.INVALID_TOKEN);
     const data = await User.verifyJwtToken(token);
@@ -26,6 +27,7 @@ const auth = async (req, res, next) => {
     };
     next();
   } catch (error) {
+    console.log(`error`, error)
     return errorHandler(res, error);
   }
 };

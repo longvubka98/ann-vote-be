@@ -1,4 +1,4 @@
-const Department = require("../Models/department.model");
+const Award = require("../Models/award.model");
 
 const err = require("../Errors/index");
 const { successHandler, errorHandler } = require("../Utils/ResponseHandler");
@@ -6,9 +6,9 @@ const { successHandler, errorHandler } = require("../Utils/ResponseHandler");
 module.exports.create = async (req, res) => {
     try {
         const { body } = req;
-        const department = new Department(body);
-        await department.save();
-        successHandler(res, department);
+        const award = new Award(body);
+        await award.save();
+        successHandler(res, award);
     } catch (error) {
         debugger;
         console.log(error);
@@ -18,9 +18,8 @@ module.exports.create = async (req, res) => {
 
 module.exports.getList = async (req, res) => {
     try {
-        console.log('object')
-        const departments = await Department.find({})
-        successHandler(res, departments);
+        const awards = await Award.find({})
+        successHandler(res, awards);
     } catch (error) {
         debugger;
         console.log(error);
@@ -30,8 +29,8 @@ module.exports.getList = async (req, res) => {
 
 module.exports.update = async (req, res) => {
     try {
-        const department = await Department.findOneAndUpdate({ _id: req.params.id }, req.body)
-        successHandler(res, department)
+        const award = await Award.findOneAndUpdate({ _id: req.params.id }, req.body)
+        successHandler(res, award)
     } catch (error) {
         debugger;
         console.log(error);
@@ -41,8 +40,8 @@ module.exports.update = async (req, res) => {
 
 module.exports.delete = async (req, res) => {
     try {
-        const department = await Department.findOneAndDelete({ _id: req.params.id })
-        successHandler(res, department)
+        const award = await Award.findOneAndDelete({ _id: req.params.id })
+        successHandler(res, award)
     } catch (error) {
         debugger;
         console.log(error);

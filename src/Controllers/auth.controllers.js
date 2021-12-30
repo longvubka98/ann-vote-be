@@ -6,10 +6,8 @@ const { successHandler, errorHandler } = require("../Utils/ResponseHandler")
 
 exports.loginGoogle = async (req, res, next) => {
     try {
-        console.log(`req______________`, req.body)
         let { accessToken } = req.body
         const userInfo = await getUserProfile(accessToken)
-        console.log(`userInfo`, userInfo)
         const userDb = await User.findOne({ email: userInfo.email })
         if (!userDb) {
             const user = new User({
@@ -22,7 +20,7 @@ exports.loginGoogle = async (req, res, next) => {
             return successHandler(res, { token, refreshToken, user }, 201)
         } else {
             const { token, refreshToken } = await userDb.generateAuthToken();
-            return successHandler(res, { token, refreshToken, user }, 201)
+            return successHandler(res, { token, refreshToken, user: userDb }, 201)
         }
     } catch (error) {
         console.log(`error`, error)

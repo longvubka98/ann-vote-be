@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const { RoleSystem } = require("../Enums");
 const err = require("../Errors/index");
 
-const userSchema = mongoose.Schema(
+const candidatesSchema = mongoose.Schema(
     {
         banner: {
             type: String,
@@ -42,5 +42,5 @@ const userSchema = mongoose.Schema(
     { timestamps: true }
 );
 
-const User = mongoose.model("User", userSchema);
-module.exports = User;
+const Candidates = mongoose.model("Candidates", candidatesSchema);
+module.exports = Candidates;
