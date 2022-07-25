@@ -1,14 +1,13 @@
-const request = require('request-promise');
-const googleConfig = require("../../config/google.config");
+const { default: axios } = require('axios');
+const googleConfig = require("../../config/google");
 
 exports.getUserProfile = async (accessToken) => {
     try {
         const path = `userinfo?alt=json&access_token=${accessToken}`
-        const res = await request({
-            method: 'GET',
-            uri: `${googleConfig.gg_api_url}/${path}`
-        })
-        return JSON.parse(res)
+        const res = await axios.get(`${googleConfig.gg_api_url}/${path}`)
+        console.log('res', res)
+        // return JSON.parse(res)
+
     } catch (error) {
         console.log(error);
     }

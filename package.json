@@ -1,35 +1,33 @@
 {
-  "name": "ann-vote-be",
-  "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
+  "name": "party-2022",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A Strapi application",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/longvubka98/ann-vote-be.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/longvubka98/ann-vote-be/issues"
-  },
-  "homepage": "https://github.com/longvubka98/ann-vote-be#readme",
+  "devDependencies": {},
   "dependencies": {
-    "body-parser": "^1.19.1",
-    "cors": "^2.8.5",
-    "dotenv": "^10.0.0",
-    "express": "^4.17.2",
-    "formidable": "^2.0.1",
-    "fs-extra": "^10.0.0",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.1.4",
-    "multer": "^1.4.4",
-    "path": "^0.12.7",
-    "request": "^2.88.2",
-    "request-promise": "^4.2.6",
-    "util": "^0.12.4",
-    "validator": "^13.7.0"
-  }
+    "@strapi/plugin-documentation": "^4.2.3",
+    "@strapi/plugin-i18n": "4.2.3",
+    "@strapi/plugin-users-permissions": "4.2.3",
+    "@strapi/strapi": "4.2.3",
+    "axios": "^0.27.2",
+    "better-sqlite3": "7.4.6",
+    "got": "^12.1.0"
+  },
+  "author": {
+    "name": "A Strapi developer"
+  },
+  "strapi": {
+    "uuid": "39b49105-e8e9-4fd1-9ef8-7f193cd50928"
+  },
+  "engines": {
+    "node": ">=12.x.x <=16.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
 }
